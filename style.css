@@ -1,0 +1,192 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Pokemon Emerald Pixel';
+    src: url('./pokemon_pixel_font.ttf') format('truetype');
+}
+
+
+body {
+
+    background-color: black;
+    color: white;
+    font-family: 'Pokemon Emerald Pixel';
+}
+
+.title-Game{
+    width: 100%;
+    text-align: center;
+}
+
+
+.div-Container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    
+}
+
+.battle-Container {
+    border: 3px black solid;
+    border-radius: 15px;
+    background-image: url('./img/Fondo6.gif');
+    background-repeat: no-repeat;
+    background-size: cover; /* Cambia a 'cover' si deseas que la imagen cubra completamente el contenedor */
+    background-position: center;
+    padding: 32px; /* Agrega un poco de espacio alrededor del texto dentro del contenedor */
+    opacity: 0.9;
+}
+
+.computer-Container{ 
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.name-Pokemon{
+    text-shadow: 
+    0 0 5px rgba(0, 0, 0, 0.7), 
+    0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+.textEndLv-Container{
+    text-align: end;
+    color: rgb(210, 240, 8);
+    text-shadow: 
+    0 0 5px rgba(0, 0, 0, 0.7), /* Borde oscuro */
+    0 0 10px rgba(0, 0, 0, 0.9); /* Sombra profunda */
+}
+
+.textEndHp-Container{
+    text-align: end;
+    color: rgb(50, 226, 91);
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.hpContainer{
+    position: relative;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 50px;
+    border: 1px black solid;
+    height: 20px;
+    overflow: hidden;
+}
+
+.hpContainer2{
+    position: relative;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 50px;
+    border: 1px black solid;
+    height: 20px;
+    overflow: hidden;
+}
+
+
+.hpDecreciendo{
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(50, 226, 91);
+    height: 18px;
+    transition: width 1s ease-in-out
+}
+
+.hp-Pokemon-Container{
+    width: 100%;
+    max-height: 30px;
+    background-color: rgb(233, 230, 230);
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: 
+        inset 0 0 5px rgba(255, 255, 255, 0.8),
+        inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.hp-Digitos{
+    max-height: 30px;
+    background-color: rgb(12, 11, 11);
+    font-size: 22px;
+    text-align: center;
+    box-shadow: 
+        inset 0 0 5px rgba(255, 255, 255, 0.8),
+        inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.venusaur-Sprite{
+
+    height: 180px;
+}
+
+.venusaur-Container{
+
+    text-align: center;
+    margin-top: 110px;
+    padding-right: 30px;
+    margin-bottom: 30px;
+  
+}
+
+.charizard-Sprite{
+    height: 200px;
+}
+
+.charizard-Container{
+    text-align: center;
+}
+
+.text-Options-Container{
+    background-color: rgba(51, 51, 51, 0.6); 
+    color: white; 
+    display: flex;
+    justify-content: center;
+    border-radius: 10px; 
+    backdrop-filter: blur(5px) brightness(110%); 
+    padding: 15px;
+}
+
+.text-Battle-Container{
+    margin-top: 12px;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.textBattle {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-shadow: 
+    0 0 5px rgba(0, 0, 0, 0.7), /* Borde oscuro */
+    0 0 10px rgba(0, 0, 0, 0.9); /* Sombra profunda */
+
+}
+
+.btn-Battle{
+    border-radius: 25px;
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    text-shadow: 
+    0 0 5px rgba(0, 0, 0, 0.7), /* Borde oscuro */
+    0 0 10px rgba(0, 0, 0, 0.9); /* Sombra profunda */
+    transition: .5s;
+}
+
+.btn-Battle:hover{
+    border: 1px white solid;
+    border-radius: 25px;
+    color: white;
+    text-shadow: 
+    0 0 5px rgba(0, 0, 0, 0.7), /* Borde oscuro */
+    0 0 10px rgba(0, 0, 0, 0.9); /* Sombra profunda */
+}
+
