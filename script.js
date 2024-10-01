@@ -6,6 +6,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const hpLow = document.getElementById('hpLow');
     const hpBar = document.getElementById('hpBar');
     const hpBar2 = document.getElementById('hpBar2');
+    const btnMusic = document.getElementById('musicBattle');
+    const sound = new Audio('./sounds/PokeBatalla.mp3');
+    let isPlaying = false;
+    sound.addEventListener('ended', () => {
+        sound.play();
+    });
+    btnMusic === null || btnMusic === void 0 ? void 0 : btnMusic.addEventListener('click', () => {
+        if (!isPlaying) {
+            sound.volume = 0.07;
+            btnMusic.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-volume" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M15 8a5 5 0 0 1 0 8" />
+                                        <path d="M17.7 5a9 9 0 0 1 0 14" />
+                                        <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+                                    </svg>`;
+            sound.play();
+            isPlaying = true;
+        }
+        else {
+            btnMusic.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-volume-3" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+                <path d="M16 10l4 4m0 -4l-4 4" />
+                </svg>`;
+            sound.pause();
+            isPlaying = false;
+        }
+    });
     fetch('https://pokeapi.co/api/v2/pokemon/venusaur')
         .then(res => res.json())
         .then(data => {
@@ -48,20 +76,32 @@ document.addEventListener("DOMContentLoaded", () => {
             this.hp = 420;
             this.type = ['Fuego', 'Dragon'];
             this.ataques = [
-                { type: 'Fuego', poder: 50 },
                 { type: 'Fuego', poder: 70 },
-                { type: 'Dragon', poder: 60 },
-                { type: 'Dragon', poder: 40 },
+                { type: 'Fuego', poder: 70 },
+                { type: 'Dragon', poder: 90 },
+                { type: 'Dragon', poder: 85 },
             ];
         }
         realizarAtaque(pokemonRival, ataque) {
             pokemonRival.recibirAtaque(ataque);
-            hpBar.style.width = `${(pokemonRival.hp / 370) * 100}%`;
+            const barradeVida = (pokemonRival.hp / 370) * 100;
+            hpBar.style.width = `${barradeVida}%`;
+            if (hpBar.style.width >= '30%' && hpBar.style.width <= '60%') {
+                hpBar.style.backgroundColor = `orange`;
+            }
+            if (hpBar.style.width >= '0%' && hpBar.style.width <= '30%') {
+                hpBar.style.backgroundColor = `red`;
+            }
             const texto = `La vida de ${pokemonRival.name} ha bajado a ${pokemonRival.hp}`;
             efectoTextHpLow(hpLow, texto);
         }
         recibirAtaque(ataque) {
             this.hp -= ataque.poder;
+        }
+        regenerarVida() {
+            this.hp = 420;
+            hpBar.style.width = `100%`;
+            hpBar.style.backgroundColor = `#32E25B`;
         }
     }
     class Venusaur {
@@ -70,20 +110,32 @@ document.addEventListener("DOMContentLoaded", () => {
             this.hp = 370;
             this.type = ['Planta', 'Veneno'];
             this.ataques = [
-                { type: 'Planta', poder: 50 },
                 { type: 'Planta', poder: 70 },
-                { type: 'Veneno', poder: 60 },
-                { type: 'Veneno', poder: 40 },
+                { type: 'Planta', poder: 80 },
+                { type: 'Veneno', poder: 75 },
+                { type: 'Veneno', poder: 90 },
             ];
         }
         realizarAtaque(pokemonRival, ataque) {
             pokemonRival.recibirAtaque(ataque);
-            hpBar2.style.width = `${(pokemonRival.hp / 420) * 100}%`;
+            const barradeVida = (pokemonRival.hp / 420) * 100;
+            hpBar2.style.width = `${barradeVida}%`;
+            if (hpBar2.style.width >= '30%' && hpBar.style.width <= '60%') {
+                hpBar2.style.backgroundColor = `orange`;
+            }
+            if (hpBar2.style.width >= '0%' && hpBar2.style.width <= '30%') {
+                hpBar2.style.backgroundColor = `red`;
+            }
             const texto = `La vida de ${pokemonRival.name} ha bajado a ${pokemonRival.hp}`;
             efectoTextHpLow(hpLow, texto);
         }
         recibirAtaque(ataque) {
             this.hp -= ataque.poder;
+        }
+        regenerarVida() {
+            this.hp = 370;
+            hpBar2.style.width = `100%`;
+            hpBar2.style.backgroundColor = `#32E25B`;
         }
     }
     const randomNumber = (min, max) => {
@@ -105,10 +157,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const botones = document.querySelectorAll('.btn-Battle');
     const verificarVida = () => {
         if (venusaur.hp < 1) {
-            alert('El ganador es Charizard');
+            Swal.fire("Ha ganado Charizard!");
+            hpBar.style.width = `0%`;
+            venusaur.regenerarVida();
+            charizard.regenerarVida();
+            hpCharizard.textContent = String(charizard.hp);
+            hpVenusaur.textContent = String(venusaur.hp);
+            return;
         }
         if (charizard.hp < 1) {
-            alert('El ganador es Venusaur');
+            Swal.fire("Ha ganado Venusaur!");
+            hpBar2.style.width = `0%`;
+            venusaur.regenerarVida();
+            charizard.regenerarVida();
+            hpCharizard.textContent = String(charizard.hp);
+            hpVenusaur.textContent = String(venusaur.hp);
+            return;
         }
     };
     botones.forEach(button => {

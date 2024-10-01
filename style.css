@@ -37,9 +37,9 @@ body {
     border-radius: 15px;
     background-image: url('./img/Fondo6.gif');
     background-repeat: no-repeat;
-    background-size: cover; /* Cambia a 'cover' si deseas que la imagen cubra completamente el contenedor */
-    background-position: center;
-    padding: 32px; /* Agrega un poco de espacio alrededor del texto dentro del contenedor */
+    background-size: cover; 
+    background-position: center; 
+    padding-bottom: .5rem;
     opacity: 0.9;
 }
 
@@ -126,10 +126,20 @@ body {
     height: 180px;
 }
 
+.sound-Container{
+    position: absolute;
+    top: 1%;
+    left: 94%;
+    background-color: rgba(51, 51, 51, 0.6);
+    backdrop-filter: blur(5px) brightness(110%);
+    border-radius: 2.5rem;
+    padding: .2rem;
+}
+
 .venusaur-Container{
 
     text-align: center;
-    margin-top: 110px;
+    margin-top: 60px;
     padding-right: 30px;
     margin-bottom: 30px;
   
