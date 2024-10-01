@@ -200,3 +200,61 @@ body {
     0 0 10px rgba(0, 0, 0, 0.9); /* Sombra profunda */
 }
 
+@media (max-width: 768px) { 
+
+    .div-Container{
+
+        display: block;
+        width: 64vh;
+        
+    }
+
+    .computer-Container{
+        margin-bottom: 2rem;
+    }
+
+    .sound-Container{
+        
+        top: 3%;
+        left: 80%;
+        
+    }
+
+    .venusaur-Sprite{
+
+        height: 100px;
+    }
+
+    .charizard-Sprite{
+        height: 110px;
+    }
+
+    .charizard-Container{
+        margin-top: 2.3rem;
+        padding-right: 2rem;
+    }
+
+    .name-Pokemon{
+       font-size: 2rem;
+    }
+
+    .textEndHp-Container{
+        padding-left: 2.5rem;
+    }    
+
+    .textEndLv-Container{
+       font-size: 2rem;
+       text-align: center;
+    }
+    
+    .text-Battle-Container{
+        display: none;
+    }
+
+    .btn-Battle{
+        font-size: 1.8rem;
+    }
+
+
+}
+
