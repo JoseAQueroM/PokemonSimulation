@@ -202,12 +202,15 @@ body {
 
 @media (max-width: 768px) { 
 
-    .div-Container{
-
-        display: block;
-        width: 64vh;
-        
+    .container{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
+
+    .battle-Container{
+        padding-left: 1rem !important;
+    }
+    
 
     .computer-Container{
         margin-bottom: 2rem;
