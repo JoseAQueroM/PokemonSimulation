@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
 
             btnMusic.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-volume-3" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
-                <path d="M16 10l4 4m0 -4l-4 4" />
-                </svg>`
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+                                        <path d="M16 10l4 4m0 -4l-4 4" />
+                                  </svg>`
             sound.pause();
             isPlaying = false;
             
@@ -228,12 +228,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
      const computadoraAtaque = () => {
 
-            const numAtaque = randomNumber(0,4);
-            const ataques = ['Hoja afilada', 'Latigo Cepa', 'Gigadrenado', 'Bomba acida']
-            const textoCompu = `Venusaur ha utilizado ${ataques[numAtaque]}`;
-            efectoTextAttack(textBattle, textoCompu);
-            venusaur.realizarAtaque(charizard, venusaur.ataques[random]);
-            hpCharizard.textContent = String(charizard.hp);
+            verificarVida();
+
+            if(charizard.hp > 0 && venusaur.hp > 0) {
+                const numAtaque = randomNumber(0,4);
+                const ataques = ['Hoja afilada', 'Latigo Cepa', 'Gigadrenado', 'Bomba acida']
+                const textoCompu = `Venusaur ha utilizado ${ataques[numAtaque]}`;
+                efectoTextAttack(textBattle, textoCompu);
+                venusaur.realizarAtaque(charizard, venusaur.ataques[random]);
+                hpCharizard.textContent = String(charizard.hp);
+            } else {
+                return;
+            }
+
+           
 
      }
 
@@ -269,6 +277,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        return;
+
      }
     
 
@@ -290,13 +300,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     Array.from(botones).forEach(btn => (btn as HTMLButtonElement).disabled = true);
 
-                    verificarVida();
+               
 
                     setTimeout(() => {
-                        
-                        computadoraAtaque()
-                        verificarVida();
 
+                        if (charizard.hp > 0 && venusaur.hp > 0) {
+                            computadoraAtaque()
+                            
+                        } else{
+                            verificarVida();
+                        }
 
                     }, 4000);
 
@@ -317,10 +330,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     Array.from(botones).forEach(btn => (btn as HTMLButtonElement).disabled = true);
 
+
                     setTimeout(() => {
+
                         
-                        computadoraAtaque();
-                        verificarVida();
+                        if (charizard.hp > 0 && venusaur.hp > 0) {
+                            computadoraAtaque();
+                            
+                        }else{
+                            verificarVida();
+                        }
+                        
 
                     }, 4000);
 
@@ -342,10 +362,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     Array.from(botones).forEach(btn => (btn as HTMLButtonElement).disabled = true);
                         
+              
+
                     setTimeout(() => {
                         
-                        computadoraAtaque();
-                        verificarVida();
+                        
+                        if (charizard.hp > 0 && venusaur.hp > 0) {
+                            computadoraAtaque()
+                            
+                        } else{
+                            verificarVida();
+                        }
+                     
 
                     }, 4000);
 
@@ -367,10 +395,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     
                     Array.from(botones).forEach(btn => (btn as HTMLButtonElement).disabled = true);
                  
+                   
+
                     setTimeout(() => {
                         
-                        computadoraAtaque();
-                        verificarVida();
+                    
+                        if (charizard.hp > 0 && venusaur.hp > 0) {
+                            computadoraAtaque()
+                            
+                        } else{
+                            verificarVida();
+                        }
+                   
 
                     }, 4000);
 
