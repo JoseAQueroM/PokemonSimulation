@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (hpBar.style.width >= '30%' && hpBar.style.width <= '60%') {
                 hpBar.style.backgroundColor = `orange`;
             }
-            if (hpBar.style.width >= '0%' && hpBar.style.width < '30%') {
+            if (hpBar.style.width > '0%' && hpBar.style.width < '30%') {
                 hpBar.style.backgroundColor = `red`;
             }
             const texto = `La vida de ${pokemonRival.name} ha bajado a ${pokemonRival.hp}`;
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (hpBar2.style.width >= '30%' && hpBar.style.width <= '60%') {
                 hpBar2.style.backgroundColor = `orange`;
             }
-            if (hpBar2.style.width >= '0%' && hpBar2.style.width < '30%') {
+            if (hpBar2.style.width > '0%' && hpBar2.style.width < '30%') {
                 hpBar2.style.backgroundColor = `red`;
             }
             const texto = `La vida de ${pokemonRival.name} ha bajado a ${pokemonRival.hp}`;
@@ -241,8 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         Array.from(botones).forEach(btn => btn.disabled = false);
                     }, 8000);
                     break;
-                case 'Lanzallamas':
-                    const texto4 = 'Charizard ha utilizado Lanzallamas';
+                case 'Infierno':
+                    const texto4 = 'Charizard ha utilizado Infierno';
                     efectoTextAttack(textBattle, texto4);
                     charizard.realizarAtaque(venusaur, charizard.ataques[3]);
                     hpVenusaur.textContent = String(venusaur.hp);

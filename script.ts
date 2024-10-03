@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 hpBar.style.backgroundColor = `orange`;
             }
 
-            if (hpBar.style.width >= '0%' && hpBar.style.width < '30%') {
+            if (hpBar.style.width > '0%' && hpBar.style.width < '30%') {
                 hpBar.style.backgroundColor = `red`;
             }
 
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 hpBar2.style.backgroundColor = `orange`;
             }
 
-            if (hpBar2.style.width >= '0%' && hpBar2.style.width < '30%') {
+            if (hpBar2.style.width > '0%' && hpBar2.style.width < '30%') {
                 hpBar2.style.backgroundColor = `red`;
             }
 
@@ -386,9 +386,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     break;
             
 
-                case 'Lanzallamas':
+                case 'Infierno':
 
-                    const texto4 = 'Charizard ha utilizado Lanzallamas';
+                    const texto4 = 'Charizard ha utilizado Infierno';
                     efectoTextAttack(textBattle, texto4)
                     charizard.realizarAtaque(venusaur, charizard.ataques[3]);
                     hpVenusaur.textContent = String(venusaur.hp);  
