@@ -214,17 +214,15 @@ body {
 
     .computer-Container{
         margin-bottom: 2rem;
+        padding: 0 1.8rem;
     }
 
-    .sound-Container{
-        
+    .sound-Container{ 
         top: 3%;
         left: 80%;
-        
     }
 
     .venusaur-Sprite{
-
         height: 100px;
     }
 
@@ -238,18 +236,20 @@ body {
     }
 
     .name-Pokemon{
-       font-size: 2rem;
+       font-size: 1.5rem;
+       text-align: center;
     }
 
     .textEndHp-Container{
-        padding-left: 2.5rem;
+        padding-left: 1.5rem;
+        
     }    
 
     .textEndLv-Container{
-       font-size: 2rem;
+       font-size: 1.6rem;
        text-align: center;
     }
-    
+
     .text-Battle-Container{
         display: none;
     }
